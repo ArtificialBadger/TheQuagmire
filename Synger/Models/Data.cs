@@ -8,4 +8,6 @@ namespace Synger.Models
     {
         public Viewer Viewer { get; set; }
     }
+
+
 }
