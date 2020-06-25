@@ -5,7 +5,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static Synger.HttpClientExtentions;
 
 namespace Synger
 {
@@ -40,8 +39,9 @@ namespace Synger
 			";
 		}
 
-		public static class GitHubHelper
+		public class GitHubHelper
 		{
+			private HttpClient client;
 
 			public partial class DataClass
 			{
@@ -73,7 +73,7 @@ namespace Synger
 				public string Id { get; set; }
 			}
 
-			public static async Task UpdateStatus(string newStatus)
+			public async Task UpdateStatus(string newStatus)
 			{
 				using var message = new HttpRequestMessage(HttpMethod.Post, gitHubApiBaseUrl);
 
@@ -84,7 +84,7 @@ namespace Synger
 				var query = new Query() { query = Constants.Mutation.Replace("##newStatus", newStatus) };
 				message.Content = new StringContent(JsonSerializer.Serialize(query));
 
-				using var response = await Client.SendAsync(message);
+				using var response = await client.SendAsync(message);
 
 				var json = await response.Content.ReadAsStringAsync();
 
@@ -116,6 +116,10 @@ namespace Synger
 
 			private const string gitHubApiBaseUrl = "https://api.github.com/graphql";
 
+			public GitHubHelper(HttpClient client)
+			{
+				this.client = client;
+			}
 		}
 	}
 }

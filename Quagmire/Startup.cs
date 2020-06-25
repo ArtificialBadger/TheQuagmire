@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Quagmire.Data;
+using Synger.Github;
+using Synger.Spotify;
 
 namespace Quagmire
 {
@@ -28,7 +30,10 @@ namespace Quagmire
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<GitHubHelper>();
+            services.AddSingleton<SpotifyHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
