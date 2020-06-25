@@ -15,7 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Synger.Spotify
+namespace Spotify
 {
     public class SpotifyHelper
     {
@@ -24,16 +24,16 @@ namespace Synger.Spotify
         private HttpClient client;
         private GitHubHelper github;
 
-        public void LaunchAuthBrowser()
+        public async Task SetGithubStatus()
         {
             var url = $"https://accounts.spotify.com/authorize?response_type=code&client_id={clientId}&redirect_uri={HttpUtility.UrlEncode(redirectUri)}&scope={HttpUtility.UrlEncode(String.Join(',', scopes))}&code_challenge={hash}&code_challenge_method=S256";
 
             listener.Prefixes.Add("http://localhost:8081/");
             listener.Start(); // start server (Run application as Administrator!)
-            var responseThread = new Thread(ResponseThread);
-            responseThread.Start(); // start the response thread
-
+            
             Process.Start(new ProcessStartInfo(url) { UseShellExecute = true }); // Works on windows
+            
+            await Task.Run(async () => await ResponseThread());
         }
 
         public static List<string> scopes = new List<string>() { "user-read-currently-playing", "user-read-playback-state" };
@@ -41,7 +41,7 @@ namespace Synger.Spotify
         public string clientId => configuration["SpotifyClientId"];
         public static string redirectUri = "http://localhost:8081";
 
-        public static string secret = Guid.NewGuid().ToString();
+        public static string secret = Guid.NewGuid().ToString() + Guid.NewGuid().ToString();
         public static string hash = GetEncodedHash(secret);
 
         public SpotifyHelper(HttpListener listener, IConfiguration configuration, HttpClient client, GitHubHelper github)
@@ -52,7 +52,7 @@ namespace Synger.Spotify
             this.github = github;
         }
 
-        public async void ResponseThread()
+        public async Task ResponseThread()
         {
             while (listener.IsListening)
             {
@@ -77,7 +77,7 @@ namespace Synger.Spotify
         }
 
         public async Task NowCode(string code)
-        {
+        {            
             var url = $"https://accounts.spotify.com/api/token";
             var parameters = new Dictionary<string, string>()
                 {
@@ -106,7 +106,7 @@ namespace Synger.Spotify
 
             var song = await JsonSerializer.DeserializeAsync<Song>(await response.Content.ReadAsStreamAsync());
 
-            await Github.GitHubHelper.UpdateStatus($"{song.Item.Name} - {String.Join(", ", song.Item.Artists.Select(x => x.Name))}");
+            await github.UpdateStatus($"{song.Item.Name} - {String.Join(", ", song.Item.Artists.Select(x => x.Name))}");
 
 
         }

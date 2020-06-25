@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -42,6 +43,7 @@ namespace Synger
 		public class GitHubHelper
 		{
 			private HttpClient client;
+			private IConfiguration config;
 
 			public partial class DataClass
 			{
@@ -112,13 +114,14 @@ namespace Synger
 				public string Company { get; set; }
 			}
 
-			private const string gitHubToken = "REMOVED FOR SAFTEY";
-
+			private string gitHubToken => config["GitHubToken"]; 
+			
 			private const string gitHubApiBaseUrl = "https://api.github.com/graphql";
 
-			public GitHubHelper(HttpClient client)
+			public GitHubHelper(HttpClient client, IConfiguration config)
 			{
 				this.client = client;
+				this.config = config;
 			}
 		}
 	}

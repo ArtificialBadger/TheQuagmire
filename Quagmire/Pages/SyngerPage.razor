@@ -1,15 +1,18 @@
 ﻿@page "/synger"
 
-@using Test.Spotify
-@inject SpotifyHelper  SpotifyHelper
+@using Spotify
+@inject SpotifyHelper spotify
 
+<h1>Spotify Client Id: @clientId</h1>
 
 <button class="btn btn-primary" @onclick="SyncSong">Syng</button>
 
 @code {
-    
-    private void SyncSong()
-    {
 
+    private string clientId = "";
+    
+    private async Task SyncSong()
+    {
+        await spotify.SetGithubStatus();
     }
 }

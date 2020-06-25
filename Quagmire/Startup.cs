@@ -11,7 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Quagmire.Data;
 using Synger.Github;
-using Synger.Spotify;
+using Spotify;
+using System.Net.Http;
+using System.Net;
 
 namespace Quagmire
 {
@@ -32,6 +34,8 @@ namespace Quagmire
             services.AddServerSideBlazor();
 
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<HttpClient>();
+            services.AddSingleton<HttpListener>();
             services.AddSingleton<GitHubHelper>();
             services.AddSingleton<SpotifyHelper>();
         }
