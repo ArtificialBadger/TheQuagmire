@@ -24,6 +24,8 @@ namespace Spotify
         private HttpClient client;
         private GitHubHelper github;
 
+        private string Token;
+
         public async Task SetGithubStatus()
         {
             var url = $"https://accounts.spotify.com/authorize?response_type=code&client_id={clientId}&redirect_uri={HttpUtility.UrlEncode(redirectUri)}&scope={HttpUtility.UrlEncode(String.Join(',', scopes))}&code_challenge={hash}&code_challenge_method=S256";
@@ -94,6 +96,8 @@ namespace Spotify
 
             var token = await JsonSerializer.DeserializeAsync<AuthThing>(await response.Content.ReadAsStreamAsync());
 
+            this.Token = token.access_token;
+
             await NowToken(token.access_token);
         }
 
@@ -108,7 +112,18 @@ namespace Spotify
 
             await github.UpdateStatus($"{song.Item.Name} - {String.Join(", ", song.Item.Artists.Select(x => x.Name))}");
 
+        }
 
+        public async Task<Song> GetSong()
+        {
+            using var message = new HttpRequestMessage(HttpMethod.Get, "https://api.spotify.com/v1/me/player/currently-playing");
+            message.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", this.Token);
+
+            var response = await client.SendAsync(message);
+
+            var song = await JsonSerializer.DeserializeAsync<Song>(await response.Content.ReadAsStreamAsync());
+
+            return song;
         }
 
         private class AuthThing
