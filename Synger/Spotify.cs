@@ -28,6 +28,12 @@ namespace Spotify
 
         public async Task SetGithubStatus()
         {
+            if (this.Token != null)
+            {
+                await this.NowToken(this.Token);
+                return;
+            }
+
             var url = $"https://accounts.spotify.com/authorize?response_type=code&client_id={clientId}&redirect_uri={HttpUtility.UrlEncode(redirectUri)}&scope={HttpUtility.UrlEncode(String.Join(',', scopes))}&code_challenge={hash}&code_challenge_method=S256";
 
             listener.Prefixes.Add("http://localhost:8081/");
@@ -60,8 +66,7 @@ namespace Spotify
             {
                 HttpListenerContext context = listener.GetContext(); // get a context
                                                                      // Now, you'll find the request URL in context.Request.Url
-                byte[] _responseArray = Encoding.UTF8.GetBytes("<html><head><title>Localhost server -- port 8081</title></head>" +
-                "<body>Welcome to the <strong>Localhost server</strong> -- <em>port 8081!</em></body></html>"); // get the bytes to response
+                byte[] _responseArray = Encoding.UTF8.GetBytes("Auth Successful! Feel free to close this tab."); // get the bytes to response
                 context.Response.OutputStream.Write(_responseArray, 0, _responseArray.Length); // write bytes to the output stream
                 context.Response.KeepAlive = false; // set the KeepAlive bool to false
                 context.Response.Close(); // close the connection
@@ -70,6 +75,11 @@ namespace Spotify
                 {
                     var code = url.Substring(6);
                     await NowCode(code);
+
+                    //context.Response.StatusCode(@"https://www.google.com");
+                    ////context.Response.Redirect(@"javascript:alert(""hi"");");
+                    //context.Response.KeepAlive = false; // set the KeepAlive bool to false
+                    //context.Response.Close();
 
                     listener.Stop();
                     listener.Close();
