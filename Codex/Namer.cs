@@ -27,7 +27,7 @@ namespace Codex
 
         private string DisplayPossibilities(string a, string b, string title = "")
         {
-            if (a.Contains("'") || b.Length > 6 || Random.Next(0, 2) == 0)
+            if (a.Contains("'") || a.EndsWith("ed") || b.Length > 6 || Random.Next(0, 2) == 0)
             {
                 return $"{a} {b}";
             }

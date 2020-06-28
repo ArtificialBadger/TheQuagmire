@@ -3,6 +3,13 @@ Shimmer
 Shades
 Clean
 
+--Seasons
+Summer
+Spring
+Winter
+Fall
+Autumn
+
 --Weather
 Warm
 Cold
@@ -18,6 +25,7 @@ Lush
 Frozen
 Icy
 Blaze
+Thunder
 
 --Sizes
 Tall
@@ -36,6 +44,25 @@ Burnt
 Scorched
 Ruined
 Pained
+Carved
+Ruin
+Pain
+Carve
+Split
+
+--Good
+Ever
+Holy
+Bless
+Blessed
+Grand
+Great
+
+--Timings
+New
+Old
+Ancient
+Ol'
 Former
 
 
@@ -54,13 +81,17 @@ Low
 Over
 Under
 
+--Possessives
+--Leaves
 
 --Beasts
+Ents'
 Dragon's
 Dragons'
 Devil's
 Devil
 Giants'
+
 
 --Numerics
 Lone

@@ -27,14 +27,23 @@ Arm
 Finger
 Head
 Mouth
+Hand
+Neck
+Spine
+Cleft
+Chin
+Eye
+Eyes
+Ear
 
 --Walkables
 Path
 Road
 Trail
 Steps
-Stairs
 Step
+Stairs
+Climb
 
 --Buildings/City Locations
 Settlement
@@ -75,6 +84,8 @@ Slush
 Glacier
 Ice
 
+--Weather
+Winds
 
 --Geographic Features
 Steppe
