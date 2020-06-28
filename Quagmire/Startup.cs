@@ -14,6 +14,7 @@ using Synger.Github;
 using Spotify;
 using System.Net.Http;
 using System.Net;
+using Codex;
 
 namespace Quagmire
 {
@@ -38,6 +39,7 @@ namespace Quagmire
             services.AddSingleton<HttpListener>();
             services.AddSingleton<GitHubHelper>();
             services.AddSingleton<SpotifyHelper>();
+            services.AddSingleton<Namer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +60,8 @@ namespace Quagmire
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

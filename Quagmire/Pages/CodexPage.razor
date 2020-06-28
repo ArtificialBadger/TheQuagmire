@@ -1,0 +1,16 @@
+﻿@page "/Codex"
+
+@inject Codex.Namer namer
+
+<h1>@placeName</h1>
+
+<button class="btn btn-primary" @onclick="SetName">Name</button>
+
+@code {
+    private string placeName;
+
+    private void SetName()
+    {
+        placeName = namer.GetName();
+    }
+}
