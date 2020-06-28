@@ -53,6 +53,7 @@ House
 Hearth
 Hall
 Tower
+Towers
 Wall
 Gate
 Gates
@@ -63,6 +64,8 @@ Ship
 Fort
 Barracks
 Shrine
+Keep
+Window
 
 --Water Features
 Damn
@@ -85,7 +88,12 @@ Glacier
 Ice
 
 --Weather
-Winds
+Wind
+Gael
+Storm
+Calm
+Crater
+Crest
 
 --Geographic Features
 Steppe
