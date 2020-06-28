@@ -49,6 +49,9 @@ Ruin
 Pain
 Carve
 Split
+Scream
+Screaming
+Weeping
 
 --Good
 Ever
@@ -81,8 +84,14 @@ Low
 Over
 Under
 
---Possessives
---Leaves
+--Things
+Stone
+Leaf
+Mist
+Gust
+Gale
+Cloud
+Anvil
 
 --Beasts
 Ents'
@@ -94,6 +103,7 @@ Giants'
 
 
 --Numerics
+Never
 Lone
 No
 Zero
@@ -127,6 +137,11 @@ Lapis
 Ruby
 Sapphire
 Emerald
+Stone
+Salt
+Silt
+Gravel
+Diamond
 
 --Colors
 Yellow
