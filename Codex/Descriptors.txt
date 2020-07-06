@@ -10,6 +10,17 @@ Winter
 Fall
 Autumn
 
+--Nature
+Knob
+Knobby
+Twisted
+Bended
+Snapped
+Broken
+Budding
+Rotted
+
+
 --Weather
 Warm
 Cold
@@ -24,7 +35,7 @@ Arid
 Lush
 Frozen
 Icy
-Blaze
+Blaze	
 Thunder
 
 --Sizes
@@ -52,6 +63,13 @@ Split
 Scream
 Screaming
 Weeping
+Wither
+Cinder
+Ruin
+Scorch
+Cut
+Break
+Broken
 
 --Good
 Ever
