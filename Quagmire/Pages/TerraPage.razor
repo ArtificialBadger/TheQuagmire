@@ -4,6 +4,7 @@
 @inject IPopulationReporter populationReporter
 @inject IWorldAlterer worldAlterer
 @inject IWorldReporter worldReporter
+@inject IPartitionAlterer partitionAlterer
 
 <pre>@WorldReport</pre>
 
@@ -14,7 +15,11 @@
 
     private Task Report()
     {
+        var seed = 10;
+
         var agolora = Terra.Agolora.AgoloraWorld.Agolora;
+
+        agolora.Continents = partitionAlterer.Randomize(agolora.Continents, 0, 30, 10, seed);
 
         worldAlterer.Alter(agolora);
 

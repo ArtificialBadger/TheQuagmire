@@ -91,6 +91,7 @@ namespace Quagmire
             services.AddTransient<IWorldReporter, WorldReporter>();
             services.AddTransient<IWorldAlterer, WorldAlterer>();
             services.AddTransient<IPopulationReporter, PopulationReporter>();
+            services.AddTransient<IPartitionAlterer, PopulationFuzzer>();
 
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<HttpClient>();
