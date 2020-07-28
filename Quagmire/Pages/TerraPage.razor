@@ -1,0 +1,29 @@
+﻿@page "/terra"
+
+@using Terra
+@inject IPopulationReporter populationReporter
+@inject IWorldAlterer worldAlterer
+@inject IWorldReporter worldReporter
+
+<pre>@WorldReport</pre>
+
+<button class="btn btn-primary" @onclick="Report">Report</button>
+
+@code {
+    public string WorldReport { get; set; }
+
+    private Task Report()
+    {
+        var agolora = Terra.Agolora.AgoloraWorld.Agolora;
+
+        worldAlterer.Alter(agolora);
+
+        var report = populationReporter.Report(agolora.Population, Terra.Agolora.Challenges.AgoloraChallenges);
+
+        var worldReport = worldReporter.Report(agolora);
+
+        WorldReport = report + Environment.NewLine + worldReport;
+
+        return Task.CompletedTask;
+    }
+}

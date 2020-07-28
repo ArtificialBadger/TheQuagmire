@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Github\" />
+    <Folder Include="Genius\" />
     <Folder Include="Spotify\" />
   </ItemGroup>
 
