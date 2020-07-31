@@ -18,16 +18,16 @@
 
     private Random random = new Random();
 
-    private World CreateWorld()
+    private World CreateWorld(decimal? worldPopulation = null)
     {
-        var population = random.Next(1, 10_000) * 1_000_000m;
+        worldPopulation ??= random.Next(1, 10_000) * 100_000m;
 
-        var world = new World() { Name = this.namer.GetName(), Continents = CreatePartitions(), Population = population };
+        var world = new World() { Name = this.namer.GetName(), Continents = CreatePartitions(worldPopulation.Value), Population = worldPopulation.Value };
 
         return world;
     }
 
-    private List<Partition> CreatePartitions()
+    private List<Partition> CreatePartitions(decimal population)
     {
         var split = random.NextDouble();
 
@@ -41,9 +41,9 @@
         {
             var partition = new Partition(partitions[i]);
 
-            if (partition.Share > .6m)
+            if ((partition.Share * population) > 5_000_000)
             {
-                partition.Partitions = CreatePartitions();
+                partition.Partitions = CreatePartitions(partition.Share * population);
             }
 
             partitions[i] = partition;
@@ -56,7 +56,6 @@
     {
         var seed = 10;
 
-        //var world = Terra.Agolora.AgoloraWorld.Agolora;
         var world = CreateWorld();
 
         world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10, seed);
@@ -65,7 +64,7 @@
 
         var report = populationReporter.Report(world.Population, Terra.Agolora.Challenges.AgoloraChallenges);
 
-        var worldReport = worldReporter.Report(world);
+        var worldReport = worldReporter.Report(world, ReportVerbosity.Limited);
 
         WorldReport = report + Environment.NewLine + worldReport;
 
@@ -84,7 +83,7 @@
 
         var report = populationReporter.Report(world.Population, Terra.Agolora.Challenges.AgoloraChallenges);
 
-        var worldReport = worldReporter.Report(world);
+        var worldReport = worldReporter.Report(world, ReportVerbosity.Full);
 
         WorldReport = report + Environment.NewLine + worldReport;
 

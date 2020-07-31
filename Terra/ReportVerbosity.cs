@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Terra
 {
-    public interface IWorldReporter
+    public enum ReportVerbosity
     {
-        string Report(World world, ReportVerbosity verbosity);
+        Limited,
+        Full
     }
 }

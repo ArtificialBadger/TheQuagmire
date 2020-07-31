@@ -7,7 +7,7 @@ namespace Terra
 {
     public class WorldReporter : IWorldReporter
     {
-		public string Report(World world)
+		public string Report(World world, ReportVerbosity verbosity)
 		{
 			var builder = new StringBuilder();
 
@@ -15,25 +15,34 @@ namespace Terra
 
 			foreach (var continent in world.Continents.OrderByDescending(c => c.Share))
 			{
-				builder.Append(FormatPartition(continent, world.Population));
+				builder.Append(FormatPartition(continent, world.Population, verbosity));
 			}
 
 			return builder.ToString();
 
 		}
 
-		private string FormatPartition(Partition partition, decimal total, string prefix = "")
+		private string FormatPartition(Partition partition, decimal total, ReportVerbosity verbosity, string prefix = "")
 		{
 			var builder = new StringBuilder();
 			builder.Append(prefix);
 
-			builder.AppendLine((total * partition.Share).ToString("N0") + " people live in " + partition.Name + ", " + ((total * partition.Share) / total).ToString("P"));
+			if (verbosity == ReportVerbosity.Full)
+			{
+				builder.AppendLine((total * partition.Share).ToString("N0") + " people live in " + partition.Name + ", " + ((total * partition.Share) / total).ToString("P"));
+			}
+			else
+            {
+				builder.AppendLine($"{partition.Name}: {(total * partition.Share).ToString("N0")}");
+
+			}
+
 			if (partition.Partitions != null)
 			{
 				foreach (var innerPartition in partition.Partitions)
 				{
-					builder.Append(prefix);
-					builder.Append(FormatPartition(innerPartition, total * partition.Share, prefix + "\t"));
+					//builder.Append(prefix);
+					builder.Append(FormatPartition(innerPartition, total * partition.Share, verbosity, prefix + "\t"));
 				}
 			}
 
