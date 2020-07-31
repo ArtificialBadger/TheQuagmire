@@ -2,15 +2,22 @@
 
 @inject Codex.Namer namer
 
-<h1>@placeName</h1>
+<h1>Names for Cities, Countries, Regions, or whatever else</h1>
+
+<ul>
+    @foreach(var placeName in placeNames)
+    { 
+        <li>@placeName</li>
+    }
+</ul>
 
 <button class="btn btn-primary" @onclick="SetName">Name</button>
 
 @code {
-    private string placeName;
+    private IEnumerable<string> placeNames = Enumerable.Empty<string>();
 
     private void SetName()
     {
-        placeName = namer.GetName();
+        placeNames = Enumerable.Range(0, 10).Select(i => namer.GetName()).ToList();
     }
 }

@@ -19,7 +19,11 @@ Snapped
 Broken
 Budding
 Rotted
-
+Stone
+Leaf
+Verdant
+Lush
+Barren
 
 --Weather
 Warm
@@ -28,6 +32,12 @@ Bright
 Snowy
 Snow
 Sunny
+Cloudy
+Moonlit
+Moonlight
+Sun
+Cloud
+Moon
 Dark
 Wet
 Dry
@@ -37,6 +47,10 @@ Frozen
 Icy
 Blaze	
 Thunder
+Mist
+Gust
+Gale
+Frosty
 
 --Sizes
 Tall
@@ -48,6 +62,7 @@ Giant
 Massive
 Thick
 Thin
+Fat
 
 --Negative
 War
@@ -69,7 +84,19 @@ Ruin
 Scorch
 Cut
 Break
+Cracked
+Burst
+End
+Dead
+Dying
+Split
 Broken
+Rotten
+Stale
+Rancid
+Rank
+Mal
+Evil
 
 --Good
 Ever
@@ -77,14 +104,25 @@ Holy
 Bless
 Blessed
 Grand
+Glowing
 Great
+Lit
+Shining
+Radiant
+Illuminated
+Glaring
+Glare
+Luminous
+Sparkling
 
 --Timings
 New
 Old
 Ancient
 Ol'
-Former
+Fresh
+Early
+Other
 
 
 --Locations
@@ -103,12 +141,6 @@ Over
 Under
 
 --Things
-Stone
-Leaf
-Mist
-Gust
-Gale
-Cloud
 Anvil
 
 --Beasts
@@ -132,21 +164,36 @@ Lone
 No
 Zero
 One
+First
 Two
+Second
 Three
+Third
 Four
+Fourth
 Five
+Fifth
 Six
+Sixth
 Seven
+Seventh
 Eight
+Eigth
 Nine
+Nineth
 Ten
+Tenth
 Dozen
+Twelfth
 Thirty
 Forty
 Fifty
 Ninety
+Ninety-Seventh
+Ninety-Eigth
+Ninety-Ninth
 Hundred
+Hundredth
 Thousand
 
 --Gems/Minerals/Mineables/Valubles

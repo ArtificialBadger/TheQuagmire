@@ -14,14 +14,34 @@ Acres
 Haven
 Post
 Trading Post
-Caravan
+Caravans
 Clave
+Villa
+Villas
+Village
+Community
+Burg
+Pueblo
+Colony
+Territory
+Capitol
+Hamlet
+Order
+Crossroads
+Parish
 
 --Old
 Keeper
 Ruins
 Once
 Shift
+Wastes
+Wreck
+Devestation
+Downfall
+Crater
+Disrupt
+Caldera
 
 --Parts
 Arm
@@ -67,6 +87,18 @@ Barracks
 Shrine
 Keep
 Window
+Bank
+Smith
+Barracks
+Apartments
+Shanty
+Mill
+Slums
+District
+Butcher
+Rest
+Theatre
+Stage
 
 --Water Features
 Damn
@@ -87,6 +119,9 @@ Fountain
 Slush
 Glacier
 Ice
+Shore
+Beach
+Wreckage
 
 --Weather
 Wind
@@ -118,11 +153,68 @@ Hills
 Cave
 Canyon
 Ravine
+Gorge
+Gully
+Overpass
+Underpass
+Tunnel
+Tree
+Boulder
+Rock
+Green
+
+--Outskirts
+Hills
+Hill
+Foothills
+
+--Forest
+Forest
+Wood
+Woods
+Green
+Scrub
+Oak
+Tree
+Trees
+Cypress
+Evergreen
+Canopy
+Root
+Shrub
+Trunk
+Mill
+
+--Desert
+Desert
+Oasis
+Wastes
+Lands
+Vast
+Outpost
 
 --Creature places
 Den
 Nest
 Burrow
 Tunnels
-Colony
+Lair
+Hideout
+Abode
+Der
+Cave
+Dwelling
+Sanctuary
+Hovel
+
+--Dungeon
+Dungeon
+Room
+Quarters
+Chamber
+
+--Supernatural
+Ghost
+Spirit
+Haunt
 

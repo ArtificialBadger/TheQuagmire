@@ -26,9 +26,13 @@ namespace Codex
             return DisplayPossibilities(word1, word2, word3);
         }
 
-        private string DisplayPossibilities(string a, string b, string c = "")
+        private string DisplayPossibilities(string a, string b, string c)
         {
-            var rand = Random.Next(0, 6);
+            var rand = Random.Next(0, 7);
+
+            var connectors = new List<string>() { "under the", "in the", "of the", "over the", "near the", "once" };
+
+            var connector = connectors[Random.Next(0, connectors.Count)];
 
             if (a.Contains("'") || a.EndsWith("ed") || b.Length > 6 || rand == 0)
             {
@@ -42,9 +46,9 @@ namespace Codex
             {
                 return $"{b} of {a}{c.ToLower()}";
             }
-            else if (rand == 3 && !String.IsNullOrWhiteSpace(c))
+            else if (rand > 3  && rand < 5 && !String.IsNullOrWhiteSpace(c))
             {
-                return $"{b} of {a} {c}";
+                return $"{b} {connector} {a} {c}";
             }
             else
             {
