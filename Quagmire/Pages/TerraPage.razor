@@ -41,9 +41,11 @@
         {
             var partition = new Partition(partitions[i]);
 
-            if ((partition.Share * population) > 5_000_000)
+            var partitionPopulation = (partition.Share * population);
+
+            if (partitionPopulation > 5_000_000)
             {
-                partition.Partitions = CreatePartitions(partition.Share * population);
+                partition.Partitions = CreatePartitions(partitionPopulation);
             }
 
             partitions[i] = partition;
@@ -54,13 +56,9 @@
 
     private Task Report()
     {
-        var seed = 10;
-
         var world = CreateWorld();
 
-        world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10, seed);
-
-        worldAlterer.Alter(world);
+        world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10);
 
         var report = populationReporter.Report(world.Population, Terra.Agolora.Challenges.AgoloraChallenges);
 
