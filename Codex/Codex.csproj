@@ -1,23 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Codex</PackageId>
-    <Version>0.1.1</Version>
+    <PackageId>QuagmireCodex</PackageId>
+    <Version>0.1.4</Version>
     <Authors>ArtificalBadger</Authors>
     <PackageDescription>Can generate names for fantasy towns, countries and more</PackageDescription>
     <RepositoryUrl>https://github.com/ArtificialBadger/TheQuagmire</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Descriptors.txt">
+    <None Update="contentFiles\Descriptors.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Words.txt">
+    <None Update="contentFiles\Words.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

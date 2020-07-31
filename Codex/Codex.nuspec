@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <metadata minClientVersion="3.3.0">
+    <id>QuagmireCodex</id>
+    <version>0.1.4</version>
+    <authors>ArtificialBadger</authors>
+    <owners>ArtificialBadger</owners>
+    <license type="expression">MIT</license>
+    <description>Can generate names for fantasy towns, countries and more</description>
+    <tags>generation quagmire demiplane</tags>
+    <contentFiles>
+      <files include="**/contentFiles/*.*" buildAction="EmbeddedResource" />
+    </contentFiles>
+  </metadata>
+</package>

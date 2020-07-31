@@ -13,8 +13,8 @@ namespace Codex
 
         public string GetName()
         {
-            var text = System.IO.File.ReadAllText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Words.txt");
-            var descriptorText = System.IO.File.ReadAllText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Descriptors.txt");
+            var text = System.IO.File.ReadAllText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\contentFiles\Words.txt");
+            var descriptorText = System.IO.File.ReadAllText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\contentFiles\Descriptors.txt");
 
             var words = text.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Select(w => w.Trim()).Where(w => !String.IsNullOrWhiteSpace(w) && !w.StartsWith("--")).Distinct().ToList();
             var descriptors = descriptorText.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Select(w => w.Trim()).Where(w => !String.IsNullOrWhiteSpace(w) && !w.StartsWith("--")).Distinct().ToList();
