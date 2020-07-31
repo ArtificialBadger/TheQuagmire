@@ -1,6 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>Codex</PackageId>
+    <Version>0.1.1</Version>
+    <Authors>ArtificalBadger</Authors>
+    <PackageDescription>Can generate names for fantasy towns, countries and more</PackageDescription>
+    <RepositoryUrl>https://github.com/ArtificialBadger/TheQuagmire</RepositoryUrl>
+  </PropertyGroup>
+
+
+  <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
