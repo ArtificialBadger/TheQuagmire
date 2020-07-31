@@ -15,6 +15,7 @@ Haven
 Post
 Trading Post
 Caravan
+Clave
 
 --Old
 Keeper
@@ -112,10 +113,16 @@ Lands
 Land
 Gael
 Magma
-Den
 Hill
 Hills
 Cave
 Canyon
 Ravine
+
+--Creature places
+Den
+Nest
+Burrow
+Tunnels
+Colony
 

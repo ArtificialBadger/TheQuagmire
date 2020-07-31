@@ -117,8 +117,14 @@ Dragon's
 Dragons'
 Devil's
 Devil
+Demon's
+Demons'
 Giants'
 
+--Animals
+Eagle
+Eagle
+Raven
 
 --Numerics
 Never
@@ -147,7 +153,10 @@ Thousand
 Silver
 Gold
 Iron
+Steel
+Shale
 Copper
+Bronze
 Tin
 Pearl
 Amber
@@ -160,6 +169,7 @@ Salt
 Silt
 Gravel
 Diamond
+Ore
 
 --Colors
 Yellow

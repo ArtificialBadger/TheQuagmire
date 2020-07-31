@@ -21,15 +21,30 @@ namespace Codex
 
             var word1 = descriptors.Pick();
             var word2 = words.Pick();
+            var word3 = words.Pick();
 
-            return DisplayPossibilities(word1, word2, "Best");
+            return DisplayPossibilities(word1, word2, word3);
         }
 
-        private string DisplayPossibilities(string a, string b, string title = "")
+        private string DisplayPossibilities(string a, string b, string c = "")
         {
-            if (a.Contains("'") || a.EndsWith("ed") || b.Length > 6 || Random.Next(0, 2) == 0)
+            var rand = Random.Next(0, 6);
+
+            if (a.Contains("'") || a.EndsWith("ed") || b.Length > 6 || rand == 0)
             {
                 return $"{a} {b}";
+            }
+            else if (rand == 1)
+            {
+                return $"{b} of {a}";
+            }
+            else if (rand == 2 && !String.IsNullOrWhiteSpace(c))
+            {
+                return $"{b} of {a}{c.ToLower()}";
+            }
+            else if (rand == 3 && !String.IsNullOrWhiteSpace(c))
+            {
+                return $"{b} of {a} {c}";
             }
             else
             {
