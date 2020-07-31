@@ -1,6 +1,8 @@
 ﻿@page "/terra"
 
 @using Terra
+@using Codex
+@inject Namer namer
 @inject IPopulationReporter populationReporter
 @inject IWorldAlterer worldAlterer
 @inject IWorldReporter worldReporter
@@ -13,19 +15,38 @@
 @code {
     public string WorldReport { get; set; }
 
+    private Random random = new Random();
+
+    private World CreateWorld()
+    {
+        var split = random.NextDouble();
+        var partitions = new List<Partition>()
+        {
+            new Partition() { Name = this.namer.GetName(), Share = (decimal) split},
+            new Partition() { Name = this.namer.GetName(), Share = (decimal) (1.0 - split) },
+        };
+
+        var population = random.Next(1, 10_000) * 1_000_000m;
+
+        var world = new World() { Name = this.namer.GetName(), Continents = partitions, Population = population };
+
+        return world;
+    }
+
     private Task Report()
     {
         var seed = 10;
 
-        var agolora = Terra.Agolora.AgoloraWorld.Agolora;
+        //var world = Terra.Agolora.AgoloraWorld.Agolora;
+        var world = CreateWorld();
 
-        agolora.Continents = partitionAlterer.Randomize(agolora.Continents, 0, 30, 10, seed);
+        world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10, seed);
 
-        worldAlterer.Alter(agolora);
+        worldAlterer.Alter(world);
 
-        var report = populationReporter.Report(agolora.Population, Terra.Agolora.Challenges.AgoloraChallenges);
+        var report = populationReporter.Report(world.Population, Terra.Agolora.Challenges.AgoloraChallenges);
 
-        var worldReport = worldReporter.Report(agolora);
+        var worldReport = worldReporter.Report(world);
 
         WorldReport = report + Environment.NewLine + worldReport;
 

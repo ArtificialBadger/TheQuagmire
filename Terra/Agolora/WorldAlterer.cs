@@ -10,20 +10,29 @@ namespace Terra.Agolora
 
         public void Alter(World world)
         {
-			var lesserEndingPercentage = .00005m;
+            var lesserEndingPercentage = .00005m;
 
-			var omrIndex = world.Continents.FindIndex(c => c.Name == "Omr");
-			var omr = world.Continents[omrIndex];
+            var omrIndex = world.Continents.FindIndex(c => c.Name == "Omr");
+            if (omrIndex == -1)
+            {
+                return;
+            }
 
-			var lesserEndingIndex = world.Continents.FindIndex(c => c.Name == "Lesser Ending");
-			var lesserEnding = world.Continents[lesserEndingIndex];
+            var omr = world.Continents[omrIndex];
 
-			var diff = lesserEnding.Share - lesserEndingPercentage;
-			lesserEnding.Share = lesserEndingPercentage;
-			omr.Share += diff;
+            var lesserEndingIndex = world.Continents.FindIndex(c => c.Name == "Lesser Ending");
+            if (lesserEndingIndex == -1)
+            {
+                return;
+            }
+            var lesserEnding = world.Continents[lesserEndingIndex];
 
-			world.Continents[lesserEndingIndex] = lesserEnding;
-			world.Continents[omrIndex] = omr;
-		}
+            var diff = lesserEnding.Share - lesserEndingPercentage;
+            lesserEnding.Share = lesserEndingPercentage;
+            omr.Share += diff;
+
+            world.Continents[lesserEndingIndex] = lesserEnding;
+            world.Continents[omrIndex] = omr;
+        }
     }
 }
