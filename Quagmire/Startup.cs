@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Quagmire.Data;
 using Synger.Github;
 using Spotify;
 using System.Net.Http;
@@ -93,7 +92,6 @@ namespace Quagmire
             services.AddTransient<IPopulationReporter, PopulationReporter>();
             services.AddTransient<IPartitionAlterer, PopulationFuzzer>();
 
-            services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<HttpClient>();
             services.AddSingleton<HttpListener>();
             services.AddSingleton<GitHubHelper>();
