@@ -29,7 +29,12 @@ namespace Terra
 
 			if (verbosity == ReportVerbosity.Full)
 			{
-				builder.AppendLine((total * partition.Share).ToString("N0") + " people live in " + partition.Name + ", " + ((total * partition.Share) / total).ToString("P"));
+				if (partition.Name == "Other")
+                {
+					builder.AppendLine((total * partition.Share).ToString("N0") + $" ({((total * partition.Share) / total).ToString("P")}), people live Elsewhere");
+				}
+
+				builder.AppendLine((total * partition.Share).ToString("N0") + $" ({((total * partition.Share) / total).ToString("P")}), people live in {partition.Name}");
 			}
 			else
             {
