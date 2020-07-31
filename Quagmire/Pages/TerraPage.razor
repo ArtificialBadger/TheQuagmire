@@ -29,13 +29,14 @@
 
     private List<Partition> CreatePartitions(decimal population)
     {
-        var split = random.NextDouble();
+        var partitionCount = random.Next(1, 10);
 
-        var partitions = new List<Partition>()
+        var partitions = new List<Partition>();
+
+        for (int i = 0; i < partitionCount; i++)
         {
-            new Partition() { Name = this.namer.GetName(), Share = (decimal) split },
-            new Partition() { Name = this.namer.GetName(), Share = (decimal) (1.0 - split) },
-        };
+            partitions.Add(new Partition() { Name = this.namer.GetName(), Share = 1.0m / partitionCount });
+        }
 
         for (int i = 0; i < partitions.Count; i++)
         {
