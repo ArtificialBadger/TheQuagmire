@@ -19,18 +19,36 @@
 
     private World CreateWorld()
     {
+        var population = random.Next(1, 10_000) * 1_000_000m;
+
+        var world = new World() { Name = this.namer.GetName(), Continents = CreatePartitions(), Population = population };
+
+        return world;
+    }
+
+    private List<Partition> CreatePartitions()
+    {
         var split = random.NextDouble();
+
         var partitions = new List<Partition>()
         {
-            new Partition() { Name = this.namer.GetName(), Share = (decimal) split},
+            new Partition() { Name = this.namer.GetName(), Share = (decimal) split },
             new Partition() { Name = this.namer.GetName(), Share = (decimal) (1.0 - split) },
         };
 
-        var population = random.Next(1, 10_000) * 1_000_000m;
+        for (int i = 0; i < partitions.Count; i++)
+        {
+            var partition = new Partition(partitions[i]);
 
-        var world = new World() { Name = this.namer.GetName(), Continents = partitions, Population = population };
+            if (partition.Share > .6m)
+            {
+                partition.Partitions = CreatePartitions();
+            }
 
-        return world;
+            partitions[i] = partition;
+        }
+
+        return partitions;
     }
 
     private Task Report()
