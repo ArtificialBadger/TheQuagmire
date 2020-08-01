@@ -1,15 +1,18 @@
-<?xml version="1.0"?>
-<package>
-  <metadata minClientVersion="3.3.0">
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
     <id>QuagmireCodex</id>
-    <version>0.1.4</version>
+    <version>0.1.6</version>
     <authors>ArtificialBadger</authors>
     <owners>ArtificialBadger</owners>
+    <projectUrl>https://github.com/ArtificialBadger/TheQuagmire</projectUrl>
     <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Can generate names for fantasy towns, countries and more</description>
     <tags>generation quagmire demiplane</tags>
     <contentFiles>
       <files include="**/contentFiles/*.*" buildAction="EmbeddedResource" />
     </contentFiles>
+    <copyright>Copyright 2020</copyright>
   </metadata>
 </package>

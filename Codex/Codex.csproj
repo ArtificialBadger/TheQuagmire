@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>QuagmireCodex</PackageId>
-    <Version>0.1.4</Version>
+    <Version>0.1.6</Version>
     <Authors>ArtificalBadger</Authors>
     <PackageDescription>Can generate names for fantasy towns, countries and more</PackageDescription>
     <RepositoryUrl>https://github.com/ArtificialBadger/TheQuagmire</RepositoryUrl>
@@ -11,6 +11,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/ArtificialBadger/TheQuagmire</PackageProjectUrl>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Description>Can generate names for fantasy towns, countries and more</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
