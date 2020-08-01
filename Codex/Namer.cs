@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Codex
 {
-    public class Namer
+    public class Namer : ISimpleNamer
     {
         private static Random random = new Random();
         private List<string> words = new List<string>();
