@@ -99,6 +99,7 @@ Butcher
 Rest
 Theatre
 Stage
+Keep
 
 --Water Features
 Damn
@@ -122,6 +123,8 @@ Ice
 Shore
 Beach
 Wreckage
+Mists
+Salvage
 
 --Weather
 Wind

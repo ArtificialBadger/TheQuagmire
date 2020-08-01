@@ -1,20 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <PackageId>QuagmireCodex</PackageId>
-    <Version>0.1.6</Version>
+    <Version>0.1.7</Version>
     <Authors>ArtificalBadger</Authors>
     <PackageDescription>Can generate names for fantasy towns, countries and more</PackageDescription>
+    <Description>Can generate names for fantasy towns, countries and more</Description>
     <RepositoryUrl>https://github.com/ArtificialBadger/TheQuagmire</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/ArtificialBadger/TheQuagmire</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/ArtificialBadger/TheQuagmire</PackageProjectUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Description>Can generate names for fantasy towns, countries and more</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -22,12 +19,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="contentFiles\Descriptors.txt">
+    <EmbeddedResource Include="Descriptors.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="contentFiles\Words.txt">
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Words.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

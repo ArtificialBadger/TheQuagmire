@@ -1,17 +1,20 @@
 ﻿@page "/Codex"
 
+@using Codex.Names
+@using Codex.NameModification
 @inject Codex.Namer namer
 
 <h1>Names for Cities, Countries, Regions, or whatever else</h1>
 
 <ul>
-    @foreach(var placeName in placeNames)
-    { 
+    @foreach (var placeName in placeNames)
+    {
         <li>@placeName</li>
     }
 </ul>
 
 <button class="btn btn-primary" @onclick="SetName">Name</button>
+<button class="btn btn-primary" @onclick="SetName2">Name</button>
 
 @code {
     private IEnumerable<string> placeNames = Enumerable.Empty<string>();
@@ -19,5 +22,24 @@
     private void SetName()
     {
         placeNames = Enumerable.Range(0, 10).Select(i => namer.GetName()).ToList();
+    }
+
+    private void SetName2()
+    {
+        var modifiers = new List<INameModifier>()
+        {
+            new ConcatModifier(),
+            new SwapModifier()
+        };
+        
+        var startingName = new DualNounName() { FirstNoun = "Mist", SecondNoun = "Tower" };
+        Name name = startingName;
+
+        foreach (var modifier in modifiers)
+        {
+            name = modifier.Modify(name);
+        }
+
+        placeNames = new List<string>() { name.GetName() };
     }
 }
