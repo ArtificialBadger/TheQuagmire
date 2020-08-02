@@ -1,12 +1,14 @@
 ﻿@page "/Codex"
 
-@using Codex 
+@using Codex
 @using Codex.Names
 @using Codex.NameModification
+@using System.Reflection
+
 @inject Namer namer
 @inject SeededMarkovNamer markovNamer
 
-<h1>Names for Cities, Countries, Regions, or whatever else</h1>
+<h1>@title</h1>
 
 <ul>
     @foreach (var placeName in placeNames)
@@ -15,22 +17,69 @@
     }
 </ul>
 
-<button class="btn btn-primary" @onclick="GenerateSimpleNames">Simple</button>
-<button class="btn btn-primary" @onclick="GenerateComplexNames">Complex</button>
-<button class="btn btn-primary" @onclick="Test">Test</button>
+<EditForm Model="placeNames">
+    <p>
+        <label>
+            Seed:
+            <InputSelect @bind-Value="seedName">
+                @foreach (var seed in seeds)
+                {
+                    <option selected value="@seed">@seed</option>
+                }
+            </InputSelect>
+        </label>
+    </p>
+    <p>
+        <label>
+            Order:
+            <InputNumber @bind-Value="Order" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Force Markov Reload:
+            <InputCheckbox @bind-Value="forceRefresh" />
+        </label>
+    </p>
+    <button class="btn btn-primary" @onclick="GenerateSimpleNames">Simple</button>
+    <button class="btn btn-primary" @onclick="GenerateComplexNames">Complex</button>
+    <button class="btn btn-primary" @onclick="Test">Test</button>
+</EditForm>
 
 @code {
+
+    private int numberOfWordsToGenerate { get; set; } = 10;
+
     private IEnumerable<string> placeNames = Enumerable.Empty<string>();
+
+    private String title { get; set; }
+
+    private String seedName { get; set; }
+
+    private int Order { get; set; } = 2;
+
+    private bool forceRefresh { get; set; }
+
+    private List<String> seeds = typeof(Namer).Assembly.GetManifestResourceNames().Where(n => n.EndsWith(".txt")).Select(n => n.Split('.')[n.Split('.').Length - 2]).ToList();
+
+    public CodexPage()
+    {
+        title = seeds.First();
+    }
 
     private void GenerateSimpleNames()
     {
+        this.title = "Generating names using randomdly formatted random word jons";
+
         placeNames = Enumerable.Range(0, 10).Select(i => namer.GetName()).ToList();
     }
 
     private void GenerateComplexNames()
     {
+        this.title = "Generating names using modular name modification (hardcoded)";
+
         var modifiers = new List<INameModifier>()
-        {
+{
             new ConcatModifier(),
             new SwapModifier()
         };
@@ -48,7 +97,23 @@
 
     private async Task Test()
     {
-        var name = await markovNamer.GetName("Words");
-        placeNames = new List<string>() { name };
+        seedName ??= seeds.First();
+
+        this.title = $"Generating names using a {seedName}.txt seeded Markov Chain with order {Order}";
+        markovNamer.Order = Order;
+        
+        if (this.forceRefresh)
+        {
+            await this.markovNamer.LoadSeeds(seedName, true);
+        }
+        var names = new List<string>();
+        for (int i = 0; i < this.numberOfWordsToGenerate; i++)
+        {
+            names.Add(await markovNamer.GetName(seedName));
+        }
+
+        placeNames = names;
+
+        this.forceRefresh = false;
     }
 }

@@ -18,6 +18,8 @@ namespace Codex
 
         private static SemaphoreSlim seedLock = new SemaphoreSlim(1, 1);
 
+        public int Order { get; set; } = 2;
+
         public async Task LoadSeeds(string fileName, bool forceLoad = false)
         {
             if (forceLoad || !fileSeeds.ContainsKey(fileName))
@@ -27,7 +29,7 @@ namespace Codex
                 {
                     if (forceLoad || !fileSeeds.ContainsKey(fileName))
                     {
-                        var chain = new MarkovChain<Char>(2);
+                        var chain = new MarkovChain<Char>(Order);
                         var seeds = await this.ReadSeedsFromFile(fileName);
                         foreach (var seed in seeds)
                         {
@@ -48,7 +50,12 @@ namespace Codex
             var assembly = Assembly.GetExecutingAssembly();
             var seeds = new List<String>();
 
-            var seedFileName = assembly.GetManifestResourceNames().Single(str => str.Contains($".{seedName}."));
+            var seedFileName = assembly.GetManifestResourceNames().FirstOrDefault(str => str.Contains($".{seedName}."));
+
+            if (seedFileName == null)
+            {
+                return seeds;
+            }
 
             using var stream = assembly.GetManifestResourceStream(seedFileName);
             using var reader = new StreamReader(stream);
