@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>QuagmireCodex</PackageId>
-    <Version>0.1.7</Version>
+    <Version>0.1.8</Version>
     <Authors>ArtificalBadger</Authors>
     <PackageDescription>Can generate names for fantasy towns, countries and more</PackageDescription>
     <Description>Can generate names for fantasy towns, countries and more</Description>
