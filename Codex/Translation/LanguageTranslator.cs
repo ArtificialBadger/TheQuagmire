@@ -6,13 +6,13 @@ using System.Text;
 
 namespace Codex.Translation
 {
-    public class LanguageTransltor : ITranslator
+    public class LanguageTranslator : ITranslator
     {
         public Language Language { get; set; }
 
         public string Translate(string word)
         {
-            return this.Language.Lookup["word"];
+            return this.Language.Lookup[word];
         }
     }
 }

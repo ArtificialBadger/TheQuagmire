@@ -28,7 +28,12 @@ namespace Codex
             
             foreach (var word in wordsNeedingTranslation)
             {
-                language.Lookup[word] = await namer.GetName(seedName);
+                var potentialWord = await namer.GetName(seedName);
+                while(potentialWord == word || potentialWord.Length > (word.Length * 2))
+                {
+                    potentialWord = await namer.GetName(seedName);
+                }
+                language.Lookup[word] = potentialWord;
             }
 
             return language;
