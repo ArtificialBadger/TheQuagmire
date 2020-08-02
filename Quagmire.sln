@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codex", "Codex\Codex.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synger", "Synger\Synger.csproj", "{616E2D66-0207-48B1-9434-AE069526EFE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terra", "Terra\Terra.csproj", "{BE7ECB2C-04A2-4FA3-B223-11E8E517FA1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terra", "Terra\Terra.csproj", "{BE7ECB2C-04A2-4FA3-B223-11E8E517FA1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6247DA86-E6A7-4C78-995C-46EA4A6F4E95}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

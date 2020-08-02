@@ -1,8 +1,10 @@
 ﻿@page "/Codex"
 
+@using Codex 
 @using Codex.Names
 @using Codex.NameModification
-@inject Codex.Namer namer
+@inject Namer namer
+@inject SeededMarkovNamer markovNamer
 
 <h1>Names for Cities, Countries, Regions, or whatever else</h1>
 
@@ -13,25 +15,26 @@
     }
 </ul>
 
-<button class="btn btn-primary" @onclick="SetName">Name</button>
-<button class="btn btn-primary" @onclick="SetName2">Name</button>
+<button class="btn btn-primary" @onclick="GenerateSimpleNames">Simple</button>
+<button class="btn btn-primary" @onclick="GenerateComplexNames">Complex</button>
+<button class="btn btn-primary" @onclick="Test">Test</button>
 
 @code {
     private IEnumerable<string> placeNames = Enumerable.Empty<string>();
 
-    private void SetName()
+    private void GenerateSimpleNames()
     {
         placeNames = Enumerable.Range(0, 10).Select(i => namer.GetName()).ToList();
     }
 
-    private void SetName2()
+    private void GenerateComplexNames()
     {
         var modifiers = new List<INameModifier>()
         {
             new ConcatModifier(),
             new SwapModifier()
         };
-        
+
         var startingName = new DualNounName() { FirstNoun = "Mist", SecondNoun = "Tower" };
         Name name = startingName;
 
@@ -41,5 +44,11 @@
         }
 
         placeNames = new List<string>() { name.GetName() };
+    }
+
+    private async Task Test()
+    {
+        var name = await markovNamer.GetName("Words");
+        placeNames = new List<string>() { name };
     }
 }

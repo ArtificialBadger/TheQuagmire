@@ -91,6 +91,7 @@ namespace Quagmire
             services.AddTransient<IWorldAlterer, WorldAlterer>();
             services.AddTransient<IPopulationReporter, PopulationReporter>();
             services.AddTransient<IPartitionAlterer, PopulationFuzzer>();
+            services.AddTransient<SeededMarkovNamer>();
 
             services.AddSingleton<HttpClient>();
             services.AddSingleton<HttpListener>();
