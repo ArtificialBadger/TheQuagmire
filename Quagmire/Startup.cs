@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.SignalR.Protocol;
 using System.Text.Json;
 using Terra;
 using Terra.Agolora;
+using Codex.WordRetrieval;
 
 namespace Quagmire
 {
@@ -91,7 +92,9 @@ namespace Quagmire
             services.AddTransient<IWorldAlterer, WorldAlterer>();
             services.AddTransient<IPopulationReporter, PopulationReporter>();
             services.AddTransient<IPartitionAlterer, PopulationFuzzer>();
+            services.AddTransient<IWordRetriever, WordRetriever>();
             services.AddTransient<SeededMarkovNamer>();
+            services.AddTransient<LanguageGenerator>();
 
             services.AddSingleton<HttpClient>();
             services.AddSingleton<HttpListener>();

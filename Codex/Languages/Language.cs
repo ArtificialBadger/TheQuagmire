@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Codex.Language
+namespace Codex.Languages
 {
-    public class GenericLanguage
+    public class Language
     {
         public Dictionary<String, String> Lookup { get; set; }
     }
