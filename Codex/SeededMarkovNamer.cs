@@ -64,7 +64,7 @@ namespace Codex
                 seeds.Add(await reader.ReadLineAsync());
             }
 
-            seeds = seeds.Select(s => s.Trim()).Where(s => !String.IsNullOrWhiteSpace(s) && !s.StartsWith("--")).Distinct().ToList();
+            seeds = seeds.Select(s => s.Trim().ToLower()).Where(s => !String.IsNullOrWhiteSpace(s) && !s.StartsWith("--")).Distinct().ToList();
 
             return seeds;
         }

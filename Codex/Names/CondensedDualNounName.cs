@@ -26,7 +26,7 @@ namespace Codex.Names
 
         public override string GetName()
         {
-            return FirstNoun + SecondNoun.ToLower();
+            return FirstNoun.UppercaseFirst() + SecondNoun.ToLower();
         }
     }
 }

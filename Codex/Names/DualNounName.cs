@@ -12,7 +12,7 @@ namespace Codex.Names
 
         public override string GetName()
         {
-            return FirstNoun + " " + SecondNoun;
+            return FirstNoun.UppercaseFirst() + " " + SecondNoun.UppercaseFirst();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Codex.Names
 
         public override string GetName()
         {
-            return Name;
+            return Name.UppercaseFirst();
         }
     }
 }

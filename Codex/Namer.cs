@@ -38,8 +38,8 @@ namespace Codex
                 }
             }
 
-            words = words.Select(w => w.Trim()).Where(w => !String.IsNullOrWhiteSpace(w) && !w.StartsWith("--")).Distinct().ToList();
-            descriptors = descriptors.Select(w => w.Trim()).Where(w => !String.IsNullOrWhiteSpace(w) && !w.StartsWith("--")).Distinct().ToList();
+            words = words.Select(w => w.Trim().ToLower()).Where(w => !String.IsNullOrWhiteSpace(w) && !w.StartsWith("--")).Distinct().ToList();
+            descriptors = descriptors.Select(w => w.Trim().ToLower()).Where(w => !String.IsNullOrWhiteSpace(w) && !w.StartsWith("--")).Distinct().ToList();
         }
 
         public string GetName()

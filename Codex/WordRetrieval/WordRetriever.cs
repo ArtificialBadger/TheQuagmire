@@ -30,7 +30,7 @@ namespace Codex.WordRetrieval
                 words.Add(await reader.ReadLineAsync());
             }
 
-            words = words.Select(s => s.Trim()).Where(s => !String.IsNullOrWhiteSpace(s) && !s.StartsWith("--")).Distinct().ToList();
+            words = words.Select(s => s.Trim().ToLower()).Where(s => !String.IsNullOrWhiteSpace(s) && !s.StartsWith("--")).Distinct().ToList();
             
             return words;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Codex.MyExtensions;
 
 namespace Codex.Names
 {
@@ -12,7 +13,7 @@ namespace Codex.Names
 
         public override string GetName()
         {
-            return $"{this.Identifier} {this.Noun}";
+            return $"{this.Identifier.UppercaseFirst()} {this.Noun}";
         }
     }
 }
