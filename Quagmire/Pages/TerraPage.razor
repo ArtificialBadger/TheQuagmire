@@ -2,11 +2,16 @@
 
 @using Terra
 @using Codex
+@using Codex.NameModification
+@using Codex.Names
+@using Codex.WordRetrieval 
 @inject Namer namer
 @inject IPopulationReporter populationReporter
 @inject IWorldAlterer worldAlterer
 @inject IWorldReporter worldReporter
 @inject IPartitionAlterer partitionAlterer
+@inject ModificationGenerator modificationGenerator
+@inject IWordRetriever wordRetriever
 
 <pre>@WorldReport</pre>
 
@@ -16,18 +21,38 @@
 @code {
     public string WorldReport { get; set; }
 
+    private SeededMarkovNamer markovNamer = new SeededMarkovNamer() { Order = 2 };
     private Random random = new Random();
+    private List<INameModifier> modifiers;
+    private List<String> words;
 
-    private World CreateWorld(decimal? worldPopulation = null)
+    private String GetName()
     {
+        var startingName = new DualNounName() { FirstNoun = words.Pick(), SecondNoun = words.Pick() };
+        Name name = startingName;
+
+        foreach (var modifier in modifiers)
+        {
+            name = modifier.Modify(name);
+        }
+
+        return name.GetName();
+    }
+
+    private async Task<World> CreateWorld(decimal? worldPopulation = null)
+    {
+        modifiers = (await this.modificationGenerator.GetNameModifiers()).ToList();
+
+        words = (await wordRetriever.GetWords("Words")).ToList();
+
         worldPopulation ??= random.Next(1, 10_000) * 100_000m;
 
-        var world = new World() { Name = this.namer.GetName(), Continents = CreatePartitions(worldPopulation.Value), Population = worldPopulation.Value };
+        var world = new World() { Name = GetName(), Continents = await CreatePartitions(worldPopulation.Value), Population = worldPopulation.Value };
 
         return world;
     }
 
-    private List<Partition> CreatePartitions(decimal population)
+    private async Task<List<Partition>> CreatePartitions(decimal population)
     {
         var partitionCount = random.Next(1, 10);
 
@@ -35,7 +60,7 @@
 
         for (int i = 0; i < partitionCount; i++)
         {
-            partitions.Add(new Partition() { Name = this.namer.GetName(), Share = 1.0m / partitionCount });
+            partitions.Add(new Partition() { Name = GetName(), Share = 1.0m / partitionCount });
         }
 
         for (int i = 0; i < partitions.Count; i++)
@@ -46,7 +71,7 @@
 
             if (partitionPopulation > 5_000_000)
             {
-                partition.Partitions = CreatePartitions(partitionPopulation);
+                partition.Partitions = await CreatePartitions(partitionPopulation);
             }
 
             partitions[i] = partition;
@@ -55,9 +80,9 @@
         return partitions;
     }
 
-    private Task Report()
+    private async Task Report()
     {
-        var world = CreateWorld();
+        var world = await CreateWorld();
 
         world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10);
 
@@ -66,8 +91,6 @@
         var worldReport = worldReporter.Report(world, ReportVerbosity.Limited);
 
         WorldReport = report + Environment.NewLine + worldReport;
-
-        return Task.CompletedTask;
     }
 
     private Task ReportAgolora()

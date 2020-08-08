@@ -82,11 +82,11 @@
     {
         seedName ??= seeds.First();
 
-        var translateFileNamer = "Words";
+        var translateFileName = "Words";
 
         this.title = "Generating names using modular name modification";
 
-        var language = await generator.Generate(translateFileNamer, seedName);
+        var language = await generator.Generate(translateFileName, seedName);
 
         var modifiers = new List<INameModifier>()
         {
@@ -95,7 +95,7 @@
             new TranslateModifier() {Language = language},
         };
 
-        var words = (await wordRetriever.GetWords(translateFileNamer)).ToList();
+        var words = (await wordRetriever.GetWords(translateFileName)).ToList();
 
         var startingName = new DualNounName() { FirstNoun = words.Pick(), SecondNoun = words.Pick() };
         Name name = startingName;

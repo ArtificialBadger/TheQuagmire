@@ -9,7 +9,7 @@ namespace Terra
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public decimal PassRate { get; set; }
+        public decimal AchieveFromPreviousChallengeRate { get; set; }
 
         public bool Lethal { get; set; }
     }

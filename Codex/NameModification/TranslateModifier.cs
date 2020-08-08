@@ -13,7 +13,7 @@ namespace Codex.NameModification
 
         private string Translate (string word)
         {
-            return this.Language.Lookup[word] ?? word;
+            return this.Language.Lookup?[word] ?? word;
         }
 
         public Name Modify(Name name)

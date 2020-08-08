@@ -12,16 +12,16 @@ namespace Terra
 			var builder = new StringBuilder();
 
 			builder.AppendLine(total.ToString("N0") + " total population");
-			builder.AppendLine((a - a * challenges[0].PassRate).ToString("N0") + $" Achieved Nothing, {((a - a * challenges[0].PassRate) / total).ToString("P1")}");
+			builder.AppendLine((a - a * challenges[0].AchieveFromPreviousChallengeRate).ToString("N0") + $" Achieved Nothing, {((a - a * challenges[0].AchieveFromPreviousChallengeRate) / total).ToString("P1")}");
 
 			for (int i = 0; i < challenges.Count; i++)
 			{
 
 				var challenge = challenges[i];
 				var b = a;
-				a *= challenge.PassRate;
+				a *= challenge.AchieveFromPreviousChallengeRate;
 				var stuckCount = a;
-				var nextChallengePassCount = a * (i == challenges.Count - 1 ? 0 : challenges[i + 1].PassRate);
+				var nextChallengePassCount = a * (i == challenges.Count - 1 ? 0 : challenges[i + 1].AchieveFromPreviousChallengeRate);
 				if (a > 1)
 				{
 					if (i != challenges.Count - 1)

@@ -24,6 +24,7 @@ using System.Text.Json;
 using Terra;
 using Terra.Agolora;
 using Codex.WordRetrieval;
+using Codex.NameModification;
 
 namespace Quagmire
 {
@@ -95,6 +96,7 @@ namespace Quagmire
             services.AddTransient<IWordRetriever, WordRetriever>();
             services.AddTransient<SeededMarkovNamer>();
             services.AddTransient<LanguageGenerator>();
+            services.AddTransient<ModificationGenerator>();
 
             services.AddSingleton<HttpClient>();
             services.AddSingleton<HttpListener>();

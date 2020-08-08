@@ -1,38 +1,223 @@
-﻿ut
-gige
-age	
-xuxu
-uxa	
-annax	
-nun	
-an	
-ixi	
-oge	
-wivi	
-uchan	
-jot	
-ishni	
-awu	
-nive	
-izage	
-is
-ax	
-ishwo
-Nannang	
-Ujig	
-Ujdig	
-Nannig	
-Ashxang	
-Gaxaz	
-Unnig	
-Zanna
-Baz	
-uge
-baz	
-Xat
-ig	
-Gash
-xang	
-Nan
-Xiz
-Zannabannu
+﻿    ækwaw
+    ænïm
+    æskü
+    æz
+    akawp
+    aluztam
+    ämëtëk
+    ängi
+    äpusnük
+    atesü
+    aw
+    awak
+    awl
+    awtetük
+    ayenzit
+    ayup
+    azïs
+    e läp
+    ëkï
+    ëm
+    emwë
+    ëngsü
+    ëngyäm
+    epaw
+    es
+    ësü
+    ëtken
+    ëwï
+    ëyü
+    ëzme
+    ïa
+    ïläksik
+    ïngaw
+    ïrmap
+    iz
+    kæmpumũ̄z
+    kæryä
+    kæyä
+    käktü
+    känzomyũ̄
+    kaw
+    kaws
+    ke
+    keket
+    këkwë
+    kemëszül
+    kemük
+    kënmuwto
+    kepï
+    këszap
+    këtla
+    këtül
+    keyum
+    ki
+    kil
+    kip
+    kïyaw
+    kol
+    kũ̄
+    kũ̄n
+    kũ̄tküs
+    lækï
+    lænrõnzæs
+    læt
+    läktũ̄
+    län
+    läs
+    laz
+    lil
+    lïp
+    lïzre
+    lo
+    lõl
+    lü
+    lukmũ̄p
+    lumït
+    lungyũ̄k
+    lurle
+    lusloksëk
+    lutwæm
+    luytü
+    mä
+    mæmäp
+    mætmäz
+    mäk
+    mam
+    mäpoë
+    mat
+    maw
+    mawp
+    mäz
+    mëkëkwë
+    mëläyutte
+    mëmep
+    mëngü
+    mëppü
+    mësnũ̄k
+    mëwëntan
+    mëyætël
+    mëzõt
+    mïkwaw
+    mïmyaw
+    mïtwem
+    mok
+    mos
+    mũ̄
+    mũ̄k
+    mukyawz
+    mum
+    mũ̄mũ̄myaw
+    mũ̄npë
+    mupa
+    muskaw
+    mũ̄tsem
+    muynep
+    o
+    õkaw
+    ol
+    õlut
+    õmumtë
+    õt
+    õyawk
+    õzæmük
+    õzul
+    tan
+    tawn
+    tawz
+    te
+    tëkaw
+    telrëk
+    tëmpaw
+    tenrün
+    tepokwü
+    tës
+    tet
+    tëwi
+    tez
+    tëzüs
+    tüm
+    tüz
+    ũ̄l
+    ũ̄nga
+    ũ̄wkü
+    wa
+    waw
+    waz
+    wekë
+    wëlawk
+    wempũ̄
+    wënrüm
+    weptæ
+    wës
+    wetkez
+    weymäz
+    wezwüz
+    wõn
+    wuk
+    wül
+    wungï
+    wupuyü
+    wutsëk
+    wuzü
+    yæk
+    yæmop
+    yæspü
+    yæylũ̄
+    yäkti
+    yämïz
+    yäpi
+    yätwäm
+    yawt zuka
+    yë
+    yëkkäl
+    yektaw
+    yelũ̄kü
+    yëmmëp
+    yëngse
+    yëntën
+    yerë
+    yesaw
+    yeslõptü
+    yët
+    yëtpaz
+    yewü
+    yeyo
+    yezë
+    yezwawt
+    yïk
+    yilupo
+    yïpa
+    yït
+    yiyäso
+    yo
+    yon
+    yõz
+    yuk
+    yuktä
+    yun
+    yüp
+    yuspæ
+    yuwtë
+    yũ̄ztüt
+    zæktõska
+    zæmüz
+    zæsnorlæ
+    zæysom
+    zämoksik
+    zätsõzä
+    zäyzowtä
+    zïksap
+    zïn
+    zïsla
+    zïzze
+    zo
+    zõk yeslæ
+    zos
+    zũ̄a
+    zũ̄kwa
+    zũ̄m
+    zũ̄ngü
+    zurlaw
+    zut
+    zuytë
