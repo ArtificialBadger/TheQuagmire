@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Terra\Terra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 </Project>

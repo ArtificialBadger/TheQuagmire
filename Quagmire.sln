@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29905.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quagmire", "Quagmire\Quagmire.csproj", "{4C5FC29A-E63F-4F09-A6E7-8E57DBE3A941}"
 EndProject
@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quagmire2", "Quagmire2\Quagmire2.csproj", "{7000D04B-16CF-4733-A03E-CAE4335099FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{5CC4FC27-FA3C-4A0B-8A6C-BD42F14C7D11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{BE7ECB2C-04A2-4FA3-B223-11E8E517FA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7ECB2C-04A2-4FA3-B223-11E8E517FA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7ECB2C-04A2-4FA3-B223-11E8E517FA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7000D04B-16CF-4733-A03E-CAE4335099FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7000D04B-16CF-4733-A03E-CAE4335099FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7000D04B-16CF-4733-A03E-CAE4335099FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7000D04B-16CF-4733-A03E-CAE4335099FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC4FC27-FA3C-4A0B-8A6C-BD42F14C7D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC4FC27-FA3C-4A0B-8A6C-BD42F14C7D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC4FC27-FA3C-4A0B-8A6C-BD42F14C7D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC4FC27-FA3C-4A0B-8A6C-BD42F14C7D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
