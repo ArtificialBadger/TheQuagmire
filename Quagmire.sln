@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FesteringSwamplands", "FesteringSwamplands\FesteringSwamplands.csproj", "{5AC1BC66-91C8-48E8-8AA3-35F7AA9DE32E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FesteringSwamplands", "FesteringSwamplands\FesteringSwamplands.csproj", "{5AC1BC66-91C8-48E8-8AA3-35F7AA9DE32E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
