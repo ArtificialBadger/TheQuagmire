@@ -228,3 +228,6 @@ White
 Black
 Grey
 Green
+
+--Abyssal
+Blister
