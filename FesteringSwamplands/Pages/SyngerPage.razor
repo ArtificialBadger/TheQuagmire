@@ -2,7 +2,8 @@
 
 @using Synger.Spotify
 
-@inject ISpotifySongResolver SpotifySongResolver
+@inject ISpotifySongResolver spotifySongResolver
+@inject IConfiguration configuration
 
 <PageTitle>Synger</PageTitle>
 
@@ -20,6 +21,7 @@
 
     private void IncrementCount()
     {
-        this.songStatusMessage = this.SpotifySongResolver.GetClientId();
+        this.songStatusMessage = this.spotifySongResolver.GetClientId();
+        //this.songStatusMessage = this.configuration["SpotifyClientId"];
     }
 }
