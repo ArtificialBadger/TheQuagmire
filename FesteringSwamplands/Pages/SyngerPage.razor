@@ -1,0 +1,25 @@
+﻿@page "/synger"
+
+@using Spotify
+
+@inject SpotifyHelper spotify
+
+<PageTitle>Synger</PageTitle>
+
+<h1>Synger</h1>
+<h6>Upload your currently playing Spotify Song as your Github status message</h6>
+
+<hr/>
+
+<p role="status">Song: @songStatusMessage</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Syng</button>
+
+@code {
+    private string songStatusMessage = "Nothing - NoOne";
+
+    private void IncrementCount()
+    {
+        this.songStatusMessage = Guid.NewGuid().ToString();
+    }
+}

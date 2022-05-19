@@ -5,15 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.6.0" />
-    <PackageReference Include="System.Text.Json" Version="4.7.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <Compile Remove="Genius\**" />
+    <Compile Remove="Github\**" />
+    <EmbeddedResource Remove="Genius\**" />
+    <EmbeddedResource Remove="Github\**" />
+    <None Remove="Genius\**" />
+    <None Remove="Github\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Github\" />
-    <Folder Include="Genius\" />
-    <Folder Include="Spotify\" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.6.0" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
 </Project>
