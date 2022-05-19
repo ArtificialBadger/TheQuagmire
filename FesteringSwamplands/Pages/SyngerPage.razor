@@ -1,8 +1,8 @@
 ﻿@page "/synger"
 
-@using Spotify
+@using Synger.Spotify
 
-@inject SpotifyHelper spotify
+@inject ISpotifySongResolver SpotifySongResolver
 
 <PageTitle>Synger</PageTitle>
 
@@ -20,6 +20,6 @@
 
     private void IncrementCount()
     {
-        this.songStatusMessage = Guid.NewGuid().ToString();
+        this.songStatusMessage = this.SpotifySongResolver.GetClientId();
     }
 }

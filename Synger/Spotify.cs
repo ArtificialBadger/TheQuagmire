@@ -19,10 +19,20 @@ namespace Spotify
 {
     public class SpotifyHelper
     {
-        private HttpListener listener;
         private IConfiguration configuration;
+
         private HttpClient client;
+        private HttpListener listener;
+
         private GitHubHelper github;
+
+        public SpotifyHelper(HttpListener listener, IConfiguration configuration, HttpClient client, GitHubHelper github)
+        {
+            this.listener = listener;
+            this.configuration = configuration;
+            this.client = client;
+            this.github = github;
+        }
 
         private string Token;
 
@@ -52,13 +62,7 @@ namespace Spotify
         public static string secret = Guid.NewGuid().ToString() + Guid.NewGuid().ToString();
         public static string hash = GetEncodedHash(secret);
 
-        public SpotifyHelper(HttpListener listener, IConfiguration configuration, HttpClient client, GitHubHelper github)
-        {
-            this.listener = listener;
-            this.configuration = configuration;
-            this.client = client;
-            this.github = github;
-        }
+        
 
         public async Task ResponseThread()
         {

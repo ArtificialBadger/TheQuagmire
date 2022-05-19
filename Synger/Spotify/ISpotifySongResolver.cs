@@ -8,5 +8,6 @@ namespace Synger.Spotify
 {
     public interface ISpotifySongResolver
     {
+        string GetClientId();
     }
 }
