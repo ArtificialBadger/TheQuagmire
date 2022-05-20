@@ -38,9 +38,10 @@ namespace Synger.Spotify
         {
             var clientId = this.configuration["SpotifyClientId"];
             var scope = "user-read-private";
-            var redirectUri = "localhost:44321";
+            var redirectUri = "localhost:7299/synger";
             var state = Guid.NewGuid().ToString();
 
+            httpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
             await httpClient.GetAsync($"https://accounts.spotify.com/authorize?response_type=code&client_id={clientId}&scope={scope}&redirect_uri={redirectUri}&state={state}");
         }
     }
