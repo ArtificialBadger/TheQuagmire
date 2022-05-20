@@ -33,5 +33,15 @@ namespace Synger.Spotify
         {
             return this.configuration["SpotifyClientId"];
         }
+
+        public async Task Authorize()
+        {
+            var clientId = this.configuration["SpotifyClientId"];
+            var scope = "user-read-private";
+            var redirectUri = "localhost:44321";
+            var state = Guid.NewGuid().ToString();
+
+            await httpClient.GetAsync($"https://accounts.spotify.com/authorize?response_type=code&client_id={clientId}&scope={scope}&redirect_uri={redirectUri}&state={state}");
+        }
     }
 }
