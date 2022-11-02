@@ -19,12 +19,12 @@
 <button class="btn btn-primary" @onclick="ReportAgolora">Agolora</button>
 
 @code {
-    public string WorldReport { get; set; }
+    public string WorldReport { get; set; } = String.Empty;
 
     private SeededMarkovNamer markovNamer = new SeededMarkovNamer() { Order = 2 };
     private Random random = new Random();
-    private List<INameModifier> modifiers;
-    private List<String> words;
+    private List<INameModifier> modifiers = new();
+    private List<String> words = new();
 
     private String GetName()
     {

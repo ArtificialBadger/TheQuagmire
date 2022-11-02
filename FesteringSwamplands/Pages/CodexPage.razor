@@ -34,10 +34,8 @@
         </label>
     </p>
     <p>
-        <label>
-            Order:
-            <InputNumber @bind-Value="Order" />
-        </label>
+        <label>Order: <InputNumber @bind-Value="Order" />
+            </label>
     </p>
     <p>
         <label>
@@ -51,72 +49,46 @@
 </EditForm>
 
 @code {
-
     private int numberOfWordsToGenerate { get; set; } = 10;
-
     private IEnumerable<string> placeNames = Enumerable.Empty<string>();
-
-    private String title { get; set; }
-
     private String seedName { get; set; }
-
     private int Order { get; set; } = 2;
-
     private bool forceRefresh { get; set; }
-
     private List<String> seeds = typeof(Namer).Assembly.GetManifestResourceNames().Where(n => n.EndsWith(".txt")).Select(n => n.Split('.')[n.Split('.').Length - 2]).OrderBy(n => n).ToList();
-
-    public CodexPage()
-    {
-        title = seeds.First();
-    }
-
+    private String title = "Temp";
+    
     private void GenerateSimpleNames()
     {
         this.title = "Generating names using randomdly formatted random word jons";
-
         placeNames = Enumerable.Range(0, 10).Select(i => namer.GetName()).ToList();
     }
-
+    
     private async Task GenerateComplexNames()
     {
         seedName ??= seeds.First();
-
         var translateFileName = "Words";
-
         this.title = "Generating names using modular name modification";
-
         var language = await generator.Generate(translateFileName, seedName);
-
         var modifiers = new List<INameModifier>()
         {
-            new ConcatModifier(),
-            new SwapModifier(),
             new TranslateModifier() {Language = language},
         };
-
         var words = (await wordRetriever.GetWords(translateFileName)).ToList();
-
         var startingName = new DualNounName() { FirstNoun = words.Pick(), SecondNoun = words.Pick() };
         Name name = startingName;
         var nameProgression = new List<Name>() { name };
-
         foreach (var modifier in modifiers)
         {
             name = modifier.Modify(name);
             nameProgression.Add(name);
         }
-
         placeNames = nameProgression.Select(n => n.GetName()).ToList();
     }
-
     private async Task Test()
     {
         seedName ??= seeds.First();
-
         this.title = $"Generating names using a {seedName}.txt seeded Markov Chain with order {Order}";
         markovNamer.Order = Order;
-
         if (this.forceRefresh)
         {
             await this.markovNamer.LoadSeeds(seedName, true);
@@ -126,9 +98,7 @@
         {
             names.Add(await markovNamer.GetName(seedName));
         }
-
         placeNames = names;
-
         this.forceRefresh = false;
     }
 }

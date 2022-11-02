@@ -1,0 +1,33 @@
+﻿@page "/synger"
+
+@using Synger.Spotify
+
+@inject ISpotifySongResolver spotifySongResolver
+@inject IConfiguration configuration
+
+<PageTitle>Synger</PageTitle>
+
+<h1>Synger</h1>
+<h6>Upload your currently playing Spotify Song as your Github status message</h6>
+
+<hr/>
+
+<p role="status">Song: @songStatusMessage</p>
+
+<button class="btn btn-primary" @onclick="Syng">Syng</button>
+<button class="btn btn-primary" @onclick="Authorize">Authorize</button>
+
+@code {
+    private string songStatusMessage = "Nothing - NoOne";
+
+    private async Task Authorize()
+    {
+        await this.spotifySongResolver.Authorize();
+    }
+
+    private void Syng()
+    {
+        this.songStatusMessage = this.spotifySongResolver.GetClientId();
+        //this.songStatusMessage = this.configuration["SpotifyClientId"];
+    }
+}
