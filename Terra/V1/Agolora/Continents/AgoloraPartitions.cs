@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Terra.V1;
 
-namespace Terra.Agolora.Continents
+namespace Terra.V1.Agolora.Continents
 {
     static class AgoloraPartitions
     {

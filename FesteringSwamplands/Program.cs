@@ -8,8 +8,8 @@ using Spotify;
 using Synger.Github;
 using Synger.Spotify;
 using System.Net;
-using Terra;
-using Terra.Agolora;
+using Terra.V1.Agolora;
+using Terra.V1;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

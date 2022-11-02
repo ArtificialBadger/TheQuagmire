@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Terra
+namespace Terra.V1
 {
     public class World
     {
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         public decimal Population { get; set; }
 

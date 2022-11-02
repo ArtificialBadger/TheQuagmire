@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Terra.V1;
 
-namespace Terra.Agolora.Magic
+namespace Terra.V1.Agolora.Magic
 {
     public static class Challenges
     {

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Terra
+namespace Terra.V1
 {
     public interface IWorldAlterer
     {
-        int Priority { get; } 
+        int Priority { get; }
 
         void Alter(World world);
     }

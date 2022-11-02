@@ -4,7 +4,8 @@
 @using Codex
 @using Codex.NameModification
 @using Codex.Names
-@using Codex.WordRetrieval 
+@using Codex.WordRetrieval
+@using Terra.V1
 @inject Namer namer
 @inject IPopulationReporter populationReporter
 @inject IWorldAlterer worldAlterer
@@ -86,7 +87,7 @@
 
         world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10);
 
-        var report = populationReporter.Report(world.Population, Terra.Agolora.Challenges.AgoloraChallenges);
+        var report = populationReporter.Report(world.Population, Terra.V1.Agolora.Challenges.AgoloraChallenges);
 
         var worldReport = worldReporter.Report(world, ReportVerbosity.Limited);
 
@@ -97,13 +98,13 @@
     {
         var seed = 10;
 
-        var world = Terra.Agolora.AgoloraWorld.Agolora;
+        var world = Terra.V1.Agolora.AgoloraWorld.Agolora;
 
         world.Continents = partitionAlterer.Randomize(world.Continents, 0, 30, 10, seed);
 
         worldAlterer.Alter(world);
 
-        var report = populationReporter.Report(world.Population, Terra.Agolora.Challenges.AgoloraChallenges);
+        var report = populationReporter.Report(world.Population, Terra.V1.Agolora.Challenges.AgoloraChallenges);
 
         var worldReport = worldReporter.Report(world, ReportVerbosity.Full);
 

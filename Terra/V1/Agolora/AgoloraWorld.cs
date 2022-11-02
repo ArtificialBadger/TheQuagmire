@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Terra.Agolora.Continents;
+using Terra.V1.Agolora.Continents;
+using Terra.V1;
 
-namespace Terra.Agolora
+namespace Terra.V1.Agolora
 {
     public static class AgoloraWorld
     {
